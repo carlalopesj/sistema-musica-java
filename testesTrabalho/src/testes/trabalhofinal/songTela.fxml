@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="testes.trabalhofinal.SongController">
+   <children>
+      <Pane prefHeight="500.0" prefWidth="600.0">
+         <children>
+            <TabPane prefHeight="500.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Adicionar">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="44.0" layoutY="79.0" text="Título:">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="44.0" layoutY="136.0" text="Artista: ">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="44.0" layoutY="201.0" text="Ano de Lançamento: ">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="40.0" layoutY="261.0" text="Gênero: ">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lSongStatusAdd" layoutX="269.0" layoutY="410.0" text="Status" />
+                              <TextField fx:id="tfSongTiAdd" layoutX="157.0" layoutY="82.0" prefHeight="26.0" prefWidth="333.0" />
+                              <TextField fx:id="tfSongArAdd" layoutX="138.0" layoutY="139.0" prefHeight="26.0" prefWidth="350.0" />
+                              <TextField fx:id="tfSongAlAdd" layoutX="243.0" layoutY="203.0" prefHeight="26.0" prefWidth="241.0" />
+                              <TextField fx:id="tfSongGeAdd" layoutX="139.0" layoutY="261.0" prefHeight="26.0" prefWidth="346.0" />
+                              <Button fx:id="btnSongAdd" layoutX="221.0" layoutY="337.0" mnemonicParsing="false" onAction="#botaoSongAdicionar" prefHeight="36.0" prefWidth="128.0" text="ADICIONAR" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Listar">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ListView fx:id="lvSongLista" layoutX="104.0" layoutY="50.0" prefHeight="347.0" prefWidth="391.0" />
+                              <Label fx:id="lSongStatusListar" layoutX="286.0" layoutY="419.0" text="Status" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab text="Buscar">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="171.0" layoutY="77.0" text="Insira o código da música:">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lSongStatusBuscar" layoutX="268.0" layoutY="265.0" text="Status" />
+                              <TextField fx:id="tfSongCodBuscar" layoutX="154.0" layoutY="138.0" prefHeight="34.0" prefWidth="264.0" />
+                              <Button fx:id="btnSongBuscar" layoutX="235.0" layoutY="200.0" mnemonicParsing="false" onAction="#botaoSongBuscar" prefHeight="35.0" prefWidth="101.0" text="BUSCAR" />
+                              <Label fx:id="lSongInfos" layoutX="270.0" layoutY="295.0" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Atualizar">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="100.0" layoutY="43.0" text="Digite o código da música que quer atualizar:">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="57.0" layoutY="144.0" text="Título: ">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="56.0" layoutY="193.0" text="Artista:">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="56.0" layoutY="243.0" text="Ano de Lançamento: ">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="56.0" layoutY="291.0" text="Gênero: ">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lSongStatusAtua" layoutX="284.0" layoutY="423.0" text="Status" />
+                              <TextField fx:id="tfSongCodAtua" layoutX="143.0" layoutY="83.0" prefHeight="34.0" prefWidth="289.0" />
+                              <TextField fx:id="tfSongNovoTi" layoutX="138.0" layoutY="147.0" prefHeight="26.0" prefWidth="345.0" />
+                              <TextField fx:id="tfSongNovoAr" layoutX="138.0" layoutY="196.0" prefHeight="26.0" prefWidth="343.0" />
+                              <TextField fx:id="tfSongNovoAl" layoutX="263.0" layoutY="246.0" prefHeight="26.0" prefWidth="215.0" />
+                              <TextField fx:id="tfSongNovoGe" layoutX="143.0" layoutY="294.0" prefHeight="26.0" prefWidth="336.0" />
+                              <Button fx:id="btnSongAtua" layoutX="238.0" layoutY="357.0" mnemonicParsing="false" onAction="#botaoSongAtua" prefHeight="38.0" prefWidth="123.0" text="ATUALIZAR" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Remover">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="100.0" layoutY="77.0" text="Digite o código da música que quer remover:">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lSongStatusRem" layoutX="272.0" layoutY="378.0" text="Status" />
+                              <TextField fx:id="tfSongCodRem" layoutX="122.0" layoutY="128.0" prefHeight="39.0" prefWidth="356.0" />
+                              <Button fx:id="btnSongRem" layoutX="217.0" layoutY="218.0" mnemonicParsing="false" onAction="#botaoSongRemover" prefHeight="34.0" prefWidth="142.0" text="REMOVER" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

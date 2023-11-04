@@ -82,7 +82,8 @@ public class UserController {
 		String stringuserID = tfUserIdBuscar.getText();
 		
 		if(stringuserID.isEmpty()) {
-			lUserStatusBuscar.setText("Preencha o campo!");
+			lUserStatusBuscar.setText("Preencha o campo do ID!");
+			lUserInfos.setText("");
 		} else {
 			int userID = Integer.parseInt(stringuserID);
 			
@@ -97,6 +98,7 @@ public class UserController {
 			}
 			if (!userEncontrado) {
 				lUserStatusBuscar.setText("Usuário não encontrado.");
+				lUserInfos.setText("");
 			}
 			
 			tfUserIdBuscar.clear();
@@ -113,7 +115,7 @@ public class UserController {
 		boolean emailAtualizado = false;
 		
 		if(stringuserID.isEmpty()) {
-			lUserStatusAtua.setText("Preencha o campo!");
+			lUserStatusAtua.setText("Preencha o campo do ID!");
 		} else {
 			int userID = Integer.parseInt(stringuserID);
 		
@@ -168,7 +170,7 @@ public class UserController {
 		boolean userEncontrado = false;
 		
 		if(stringuserID.isEmpty()) {
-			lUserStatusDeletar.setText("Preencha o campo!");
+			lUserStatusDeletar.setText("Preencha o campo do ID!");
 		} else {
 			int userID = Integer.parseInt(stringuserID);
 			User usuarioParaRemover = null;
@@ -200,13 +202,14 @@ public class UserController {
 		
 		
 	}
-	
-
-	public void setMainApp(MainController mainController) {
-		// TODO Auto-generated method stub
-		
-	}
 }
+
+//Precisa?
+
+//public void setMainApp(MainController mainController) {
+	// TODO Auto-generated method stub
+	
+//}
 //Buscar ID não pode ser string, tem que ser num
 //Ver depois como limpar o Label
 //Adicionar campos de confirmação...

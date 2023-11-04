@@ -724,7 +724,7 @@ public class Musica extends Application{
 	        Scene scene = new Scene(root);
 	        
 	        // Configura a janela
-	        primaryStage.setTitle("Seu Aplicativo JavaFX");
+	        primaryStage.setTitle("Aplicativo");
 	        primaryStage.setScene(scene);
 	        primaryStage.show();
 	    } catch (Exception e) {

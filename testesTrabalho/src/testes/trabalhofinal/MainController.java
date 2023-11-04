@@ -23,11 +23,12 @@ public class MainController {
 
 	public void initialize() {
 	    btnUser.setOnAction(event -> showUserScreen());
+	    btnSong.setOnAction(event -> showSongScreen());
 	}
 	
 	public void showUserScreen() {
 	    try {
-	    	System.out.println("Botão Usuário clicado!"); // Adicione esta linha
+	    	System.out.println("Botão Usuário clicado!");
 	        FXMLLoader loader = new FXMLLoader(getClass().getResource("userTela.fxml"));
 	        Parent telaUser = loader.load();
 
@@ -42,4 +43,25 @@ public class MainController {
 	        e.printStackTrace();
 	    }
 	}
+	
+	public void showSongScreen() {
+        try {
+        	System.out.println("Botão Música clicado!");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("songTela.fxml"));
+            Parent telaSong = (Parent) loader.load();
+
+            // Obtém o palco (Stage) atual
+	        Stage currentStage = (Stage) btnSong.getScene().getWindow();
+
+	        // Crie uma nova cena e defina-a no palco
+	        Scene scene = new Scene(telaSong);
+	        currentStage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+	
+	
+	
 }
