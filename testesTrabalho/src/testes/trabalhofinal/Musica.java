@@ -732,7 +732,6 @@ public class Musica extends Application{
 	    }
 	}
 
-
 }
 
 //Remover e atualizar música de uma playlist

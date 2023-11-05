@@ -10,7 +10,7 @@
          <children>
             <Button fx:id="btnUser" mnemonicParsing="false" onAction="#showUserScreen" text="Usuário" />
             <Button fx:id="btnSong" mnemonicParsing="false" onAction="#showSongScreen" text="Música" />
-            <Button fx:id="btnPlaylist" mnemonicParsing="false" text="Playlist" />
+            <Button fx:id="btnPlaylist" mnemonicParsing="false" onAction="#showPlaylistScreen" text="Playlist" />
          </children>
       </VBox>
    </children>

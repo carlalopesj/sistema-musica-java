@@ -1,23 +1,28 @@
 package testes.trabalhofinal;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class SongController {
 
 	@FXML
 	private TextField tfSongTiAdd, tfSongArAdd, tfSongAlAdd, tfSongGeAdd, tfSongCodBuscar, tfSongCodAtua, tfSongNovoTi, tfSongNovoAr, tfSongNovoAl, tfSongNovoGe, tfSongCodRem;
 	@FXML
-	private Button btnSongAdd, btnSongBuscar, btnSongAtua, btnSongRem;
+	private Button btnSongAdd, btnSongBuscar, btnSongAtua, btnSongRem, btnVoltarSongPrinc;
 	@FXML
 	private Label lSongStatusAdd, lSongStatusListar, lSongStatusBuscar, lSongInfos, lSongStatusAtua, lSongStatusRem;
 	@FXML
@@ -26,6 +31,8 @@ public class SongController {
 	ArrayList<Song> songs = new ArrayList<>();
 	
 	public void initialize() {
+		
+		btnVoltarSongPrinc.setOnAction(event -> voltarTelaPrincipal());
 	    	
 	    	// Configure a ObservableList e defina a ListView
 	        ObservableList<Song> observableSongs = FXCollections.observableArrayList(songs);
@@ -218,7 +225,24 @@ public class SongController {
 	
 	}
 	
-	
+	//Botão de voltar para tela inicial
+	public void voltarTelaPrincipal() {
+		 try {
+		    System.out.println("Botão Usuário clicado!");
+		    FXMLLoader loader = new FXMLLoader(getClass().getResource("interface.fxml"));
+		    Parent telaInicio = loader.load();
+
+		    // Obtém o palco (Stage) atual
+		    Stage currentStage = (Stage) btnVoltarSongPrinc.getScene().getWindow();
+
+		    // Crie uma nova cena e defina-a no palco
+		    Scene scene = new Scene(telaInicio);
+		    currentStage.setScene(scene);
+
+		 } catch (IOException e) {
+		        e.printStackTrace();
+		 }
+	}
 	
 	
 	
@@ -231,6 +255,7 @@ public class SongController {
 	
 }
 
+//Lista em ordem alfabetica'
 //Tabela para visualizar dados do buscar - ideia
 //Opção para voltar
 //Janelas - confirmação

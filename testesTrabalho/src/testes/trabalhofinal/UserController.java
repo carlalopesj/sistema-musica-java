@@ -1,16 +1,21 @@
 package testes.trabalhofinal;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class UserController {
 	
@@ -19,13 +24,18 @@ public class UserController {
 	@FXML
 	private Label lUserStatusCad,lUserStatusLista, lUserStatusBuscar, lUserInfos, lUserStatusAtua, lUserStatusDeletar;
 	@FXML
-	private Button btnUserCad, btnUserListar, btnUserBuscar, btnUserAtua, btnUserDeletar;
+	private Button btnUserCad, btnUserListar, btnUserBuscar, btnUserAtua, btnUserDeletar, btnVoltarUserPrinc;
 	@FXML
 	private ListView<User> lvUserLista;
 	
 	ArrayList<User> users = new ArrayList<>();
 
     public void initialize() {
+    	
+    	//Botão para voltar - tela principal
+    	
+    	btnVoltarUserPrinc.setOnAction(event -> voltarTelaPrincipal());
+    	
     	
     	// Configure a ObservableList e defina a ListView
         ObservableList<User> observableUsers = FXCollections.observableArrayList(users);
@@ -47,8 +57,7 @@ public class UserController {
             }
         });
     }
-	
-	
+    
 	@FXML
 	private void botaoUserCadastrar(ActionEvent event) {
 		System.out.println("Cadastrar - foi clicado");
@@ -198,18 +207,30 @@ public class UserController {
 			tfUserIdDeletar.clear();
 		}
 		
-		
-		
-		
 	}
+	
+	//Botão de voltar para tela inicial
+	public void voltarTelaPrincipal() {
+	    try {
+	    	System.out.println("Botão Usuário clicado!");
+	        FXMLLoader loader = new FXMLLoader(getClass().getResource("interface.fxml"));
+	        Parent telaInicio = loader.load();
+
+	        // Obtém o palco (Stage) atual
+	        Stage currentStage = (Stage) btnVoltarUserPrinc.getScene().getWindow();
+
+	        // Crie uma nova cena e defina-a no palco
+	        Scene scene = new Scene(telaInicio);
+	        currentStage.setScene(scene);
+
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+	}
+
 }
 
-//Precisa?
-
-//public void setMainApp(MainController mainController) {
-	// TODO Auto-generated method stub
-	
-//}
+//Remover clicando
 //Buscar ID não pode ser string, tem que ser num
 //Ver depois como limpar o Label
 //Adicionar campos de confirmação...

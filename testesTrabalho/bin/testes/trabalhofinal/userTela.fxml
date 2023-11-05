@@ -10,11 +10,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="testes.trabalhofinal.UserController">
+<AnchorPane prefHeight="543.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="testes.trabalhofinal.UserController">
    <children>
-      <Pane prefHeight="500.0" prefWidth="600.0">
+      <Pane layoutY="28.0" prefHeight="472.0" prefWidth="600.0">
          <children>
-            <TabPane prefHeight="500.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+            <TabPane layoutY="6.0" prefHeight="500.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
                 <Tab text="Cadastrar">
                   <content>
@@ -43,7 +43,7 @@
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
                               <Label fx:id="lUserStatusLista" layoutX="286.0" layoutY="425.0" text="Status" />
-                              <ListView fx:id="lvUserLista" layoutX="102.0" layoutY="60.0" prefHeight="325.0" prefWidth="382.0" />
+                              <ListView fx:id="lvUserLista" layoutX="102.0" layoutY="59.0" prefHeight="325.0" prefWidth="382.0" />
                            </children>
                         </AnchorPane>
                   </content>
@@ -113,5 +113,6 @@
             </TabPane>
          </children>
       </Pane>
+      <Button fx:id="btnVoltarUserPrinc" layoutY="2.0" mnemonicParsing="false" onAction="#voltarTelaPrincipal" text="VOLTAR" />
    </children>
 </AnchorPane>

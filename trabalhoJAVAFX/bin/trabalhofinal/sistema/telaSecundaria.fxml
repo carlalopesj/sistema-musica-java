@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="770.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trabalhofinal.sistema.Controller">
+   <children>
+      <TabPane prefHeight="775.0" prefWidth="1446.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="USUÁRIO">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="36.0" layoutY="54.0" text="Nome de Usuário:" />
+                        <Label layoutX="42.0" layoutY="116.0" text="Email:" />
+                        <Label layoutX="67.0" layoutY="231.0" text="Insira o nome do usuário:" />
+                        <Label layoutX="102.0" layoutY="459.0" text="Digite o ID:" />
+                        <Label layoutX="50.0" layoutY="541.0" text="Novo nome de Usuário:" />
+                        <Label layoutX="45.0" layoutY="606.0" text="Novo Email:" />
+                        <TextField fx:id="tfUserNome" layoutX="62.0" layoutY="76.0" />
+                        <TextField fx:id="tfUserEmail" layoutX="63.0" layoutY="138.0" />
+                        <TextField fx:id="tfUserNomeBuscar" layoutX="64.0" layoutY="256.0" />
+                        <TextField fx:id="tfUserID" layoutX="57.0" layoutY="486.0" />
+                        <TextField fx:id="tfUserNovoNome" layoutX="46.0" layoutY="572.0" />
+                        <TextField fx:id="tfUserNovoEmail" layoutX="46.0" layoutY="635.0" />
+                        <Button fx:id="btnUserCad" layoutX="109.0" layoutY="186.0" mnemonicParsing="false" onAction="#botaoUserCadastrar" text="Cadastrar" />
+                        <Button fx:id="btnUserBuscar" layoutX="109.0" layoutY="301.0" mnemonicParsing="false" onAction="#botaoUserBuscar" text="Buscar" />
+                        <Button fx:id="btnUserAtua" layoutX="38.0" layoutY="688.0" mnemonicParsing="false" onAction="#botaoUserAtualizar" text="Atualizar" />
+                        <Button fx:id="btnUserDel" layoutX="150.0" layoutY="688.0" mnemonicParsing="false" onAction="#botaoUserDeletar" text="Deletar" />
+                        <ListView fx:id="lvUsers" layoutX="305.0" layoutY="64.0" prefHeight="657.0" prefWidth="338.0" />
+                        <Label fx:id="lUserInfo" layoutX="792.0" layoutY="80.0" text="INFO" />
+                        <Label fx:id="lUserStatus" layoutX="120.0" layoutY="373.0" text="Status" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="MÚSICA">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="40.0" layoutY="56.0" text="Título:" />
+                        <Label layoutX="40.0" layoutY="99.0" text="Artista: " />
+                        <Label layoutX="40.0" layoutY="146.0" text="Ano de Lançamento:" />
+                        <Label layoutX="40.0" layoutY="191.0" text="Gênero:" />
+                        <Label fx:id="lSongStatus" layoutX="138.0" layoutY="267.0" text="Status" />
+                        <Label layoutX="101.0" layoutY="434.0" text="Digite o Código da música:" />
+                        <Label fx:id="lSongInfo" layoutX="853.0" layoutY="56.0" text="Info" />
+                        <Label layoutX="42.0" layoutY="311.0" text="Insira o nome da música:" />
+                        <Label layoutX="45.0" layoutY="518.0" text="Título:" />
+                        <Label layoutX="45.0" layoutY="561.0" text="Artista: " />
+                        <Label layoutX="45.0" layoutY="608.0" text="Ano de Lançamento:" />
+                        <Label layoutX="45.0" layoutY="653.0" text="Gênero:" />
+                        <TextField fx:id="tfSongTitulo" layoutX="100.0" layoutY="52.0" prefHeight="26.0" prefWidth="212.0" />
+                        <TextField fx:id="tfSongArtista" layoutX="101.0" layoutY="95.0" prefHeight="26.0" prefWidth="209.0" />
+                        <TextField fx:id="tfSongAno" layoutX="161.0" layoutY="142.0" />
+                        <TextField fx:id="tfSongGenero" layoutX="105.0" layoutY="187.0" prefHeight="26.0" prefWidth="204.0" />
+                        <TextField fx:id="tfSongNomeBuscar" layoutX="42.0" layoutY="338.0" prefHeight="26.0" prefWidth="263.0" />
+                        <TextField fx:id="tfSongCod" layoutX="99.0" layoutY="460.0" />
+                        <TextField fx:id="tfSongNovoT" layoutX="106.0" layoutY="514.0" prefHeight="26.0" prefWidth="220.0" />
+                        <TextField fx:id="tfSongNovoA" layoutX="110.0" layoutY="557.0" prefHeight="26.0" prefWidth="218.0" />
+                        <TextField fx:id="tfSongNovoAL" layoutX="180.0" layoutY="604.0" />
+                        <TextField fx:id="tfSongNovoG" layoutX="114.0" layoutY="649.0" prefHeight="26.0" prefWidth="212.0" />
+                        <Button fx:id="btnSongAdd" layoutX="135.0" layoutY="229.0" mnemonicParsing="false" onAction="#botaoSongAdicionar" text="Adicionar" />
+                        <Button fx:id="btnSongBuscar" layoutX="135.0" layoutY="385.0" mnemonicParsing="false" onAction="#botaoSongBuscar" text="Buscar" />
+                        <Button fx:id="btnSongAtua" layoutX="56.0" layoutY="697.0" mnemonicParsing="false" onAction="#botaoSongAtualizar" text="Atualizar" />
+                        <Button fx:id="btnSongRem" layoutX="223.0" layoutY="697.0" mnemonicParsing="false" onAction="#botaoSongRemover" text="Remover" />
+                        <ListView fx:id="lvSongs" layoutX="371.0" layoutY="46.0" prefHeight="670.0" prefWidth="337.0" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="PLAYLIST">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
