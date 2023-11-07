@@ -734,7 +734,7 @@ public class Musica extends Application{
 
 }
 
-//Remover e atualizar música de uma playlist
+//Remover e atualizar música de uma playlist OK
 //Arrumar o design (switch)
 //Criar senha para remover e atualizar?
 

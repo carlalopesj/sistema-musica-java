@@ -1,7 +1,9 @@
 package trabalhofinal.sistema;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -10,7 +12,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 public class Controller {
 	
@@ -43,7 +48,7 @@ public class Controller {
 	//Playlists
 	
 	@FXML
-	private TextField tfPlstNome, tfPlstIdProp, tfPlstNomeBuscar, tfPlstCod, tfPlstNovoNome, tfPlstNovoIdProp, tfPlstAddSong, tfPlstRemSong;
+	private TextField tfPlstNome, tfPlstIdProp, tfPlstNomeBuscar, tfPlstCod, tfPlstNovoNome, tfPlstNovoIdProp, tfPlstAddSong, tfPlstRemSong, tfPlstCod1;
 	@FXML
 	private Button btnPlstAdd, btnPlstBuscar, btnPlstAtua, btnPlstRem, btnPlstAddSong, btnPlstRemSong;
 	@FXML
@@ -75,7 +80,7 @@ public class Controller {
                 }
             }
         });
-        
+ 
         //Músicas
         ObservableList<Song> observableSongs = FXCollections.observableArrayList(songs);
         lvSongs.setItems(observableSongs);
@@ -92,6 +97,24 @@ public class Controller {
                 }
             }
         });
+        
+        //Playlists
+        ObservableList<Playlist> observablePlsts = FXCollections.observableArrayList(playlists);
+        lvPlaylists.setItems(observablePlsts);
+        
+        lvPlaylists.setCellFactory(param -> new ListCell<Playlist>() {
+            @Override
+            protected void updateItem(Playlist playlist, boolean empty) {
+                super.updateItem(playlist, empty);
+
+                if (empty || playlist == null) {
+                    setText(null);
+                } else {
+                    setText("COD: " + playlist.getCod() + " - " + playlist.getNome());
+                }
+            }
+        });
+        
 	}
 	
 	//-----------------------Parte de Usuários-------------------------------------
@@ -400,7 +423,279 @@ public class Controller {
 	}
 	
 	//-----------------------Parte de Playlists-------------------------------------
+	@FXML
+	private void botaoPlstCriar(ActionEvent event) {
+		System.out.println("Adicionar foi clicado!");
+		
+		String nomePlst = tfPlstNome.getText();
+		String strId = tfPlstIdProp.getText();
+		boolean userEncontrado = false;
+		
+		if (users.isEmpty()) {
+			lPlstStatus.setText("Não há usuários disponíveis.");
+		} else {
+			if (nomePlst.isEmpty() || strId.isEmpty()) {
+				lPlstStatus.setText("Preencha todos os campos!");
+			} else {
+				int propId = Integer.parseInt(strId);
+				
+				User proprietario = null;
+				for (User user : users) {
+				    if (user.getId() == propId) {
+				        proprietario = user;
+				        break;
+				    }
+				}
+
+				if (proprietario != null) {
+				    // Criar a nova Playlist com o proprietário encontrado
+				    Playlist novaPlaylist = new Playlist(nomePlst, proprietario);
+				    playlists.add(novaPlaylist);
+				    
+				    // Atualizar a lista de playlists na interface do usuário
+				    ObservableList<Playlist> observablePlsts = FXCollections.observableArrayList(playlists);
+				    lvPlaylists.setItems(observablePlsts);
+				    
+				    lPlstStatus.setText("Playlist criada com sucesso.");
+				} else {
+				    lPlstStatus.setText("Usuário não encontrado.");
+				}
+
+			}
+			tfPlstNome.clear();
+			tfPlstIdProp.clear();
+		}
+	}
 	
+	@FXML 
+	private void botaoPlstBuscar(ActionEvent event) {
+		System.out.println("Buscar foi clicado!");
+		
+		String nomePlst = tfPlstNomeBuscar.getText();
+		boolean plstEncontrada = false;
+		
+		for (Playlist playlist : playlists) {
+			if (playlist.getNome().equalsIgnoreCase(nomePlst)) {
+				plstEncontrada = true;
+				
+				lPlstStatus.setText("Playlist encontrada.");
+				lPlstInfo.setText("Nome: " + playlist.getNome() + "\nID Proprietário: " + playlist.getProprietario().getNome() + "\nMúsicas: " + playlist.getSongs());
+			
+				String info = "Nome: " + playlist.getNome() + "\nID Proprietário: " + playlist.getProprietario().getNome() + "\nMúsicas:\n";
+
+	            for (Song song : playlist.getSongs()) {
+	                info += "- " + song.getTitulo() + "\n";
+	            }
+
+	            lPlstStatus.setText("Playlist encontrada.");
+	            lPlstInfo.setText(info);
+			
+			}
+		}
+		if (!plstEncontrada) {
+			lPlstStatus.setText("Playlist não encontrada.");
+		}
+		tfPlstNomeBuscar.clear();
+	}
+	
+	@FXML
+	private void botaoPlstAtua(ActionEvent event) {
+		System.out.println("Atualizar foi clicado!");
+		
+		String novoNome = tfPlstNovoNome.getText();
+		String strNovoId = tfPlstNovoIdProp.getText();
+		String strCodPlst = tfPlstCod.getText();
+		boolean plstEncontrada = false;
+		
+		if (strCodPlst.isEmpty()) {
+			lPlstStatus.setText("Preencha o código da Playlist!");
+		} else {
+			int codPlst = Integer.parseInt(strCodPlst);
+			for(Playlist playlist : playlists) {
+				if(playlist.getCod() == codPlst) {
+					plstEncontrada = true;
+				}
+			}
+			if (plstEncontrada) {
+				for (Playlist playlist : playlists) {
+					if (novoNome.isEmpty()) {
+						playlist.setNome(playlist.getNome());
+					} else {
+						playlist.setNome(novoNome);
+						lPlstStatus.setText("Atualização realizada com sucesso.");
+						
+						ObservableList<Playlist> observablePlsts = FXCollections.observableArrayList(playlists);
+						lvPlaylists.setItems(observablePlsts);
+					}
+					
+					if (strCodPlst.isEmpty()) {
+						playlist.setProprietario(playlist.getProprietario());
+					} else {
+						
+						User novoProp = null;
+						for (User user : users) {
+							if (user.getId() == codPlst) {
+								novoProp = user;
+								break;
+							}
+						}
+						if (novoProp != null) {
+							playlist.setProprietario(novoProp);
+							lPlstStatus.setText("Atualização realizada com sucesso.");
+						} else {
+							lPlstStatus.setText("Usuário não encontrado");
+						}
+					}	
+				}
+			} else {
+				lPlstStatus.setText("Playlist não encontrada.");
+			}
+			tfPlstNovoNome.clear();
+			tfPlstNovoIdProp.clear();
+			tfPlstCod.clear();
+		}
+	}
+	
+	@FXML
+	private void botaoPlstRem(ActionEvent event) {
+		System.out.println("Remover foi clicado!");
+		
+		String strCodPlst = tfPlstCod.getText();
+		boolean plstEncontrada = false;
+		
+		if (strCodPlst.isEmpty()) {
+			lPlstStatus.setText("Preencha o código da Playlist!");
+		} else {
+			int codPlst = Integer.parseInt(strCodPlst);
+			for(Playlist playlist : playlists) {
+				if(playlist.getCod() == codPlst) {
+					plstEncontrada = true;
+				}
+			}
+			if (plstEncontrada) {
+				Playlist plstRem = null;
+				for (Playlist playlist : playlists) {
+					if (playlist.getCod() == codPlst) {
+						plstRem = playlist;
+						break;
+					}
+				}
+				if (plstRem != null) {
+					playlists.remove(plstRem);
+					lPlstStatus.setText("Playlist removida com sucesso.");
+					
+					ObservableList<Playlist> observablePlsts = FXCollections.observableArrayList(playlists);
+					lvPlaylists.setItems(observablePlsts);
+				}
+			} else {
+				lPlstStatus.setText("Playlist não encontrada.");
+			}
+			tfPlstCod.clear();
+		}
+	}
+	
+	@FXML
+	private void botaoAdicionarMusicaPlst(ActionEvent event) {
+		System.out.println("Adicionar música clicado");
+		
+		String strCodSong = tfPlstAddSong.getText();
+		String strCodPlst = tfPlstCod1.getText();
+		boolean songEncontrado = false , plstEncontrada = false; 
+		
+		if (songs.isEmpty() || playlists.isEmpty()) {
+			lPlstStatus.setText("Não há músicas ou playlists.");
+		} else {
+			if (strCodSong.isEmpty() || strCodPlst.isEmpty()) {
+				lPlstStatus.setText("Preencha todos os campos!");
+			} else {
+				int codSong = Integer.parseInt(strCodSong);
+				int codPlst = Integer.parseInt(strCodPlst);
+				
+				Song songAdd = null;
+				Playlist plstAdd = null;
+				
+				for (Playlist playlist : playlists) {
+					if (playlist.getCod() == codPlst) {
+						plstAdd = playlist;
+						plstEncontrada = true;
+						break;
+					}
+				}
+				
+				for (Song song : songs) {
+					if (song.getCod() == codSong) {
+						songAdd = song;
+						songEncontrado = true;
+						break;
+					}
+				}
+				
+				if (plstAdd != null && songAdd != null) {
+					plstAdd.adicionarMusica(songAdd);
+					lPlstStatus.setText("Música adicionada com sucesso.");
+				}
+				
+				if (!plstEncontrada || !songEncontrado) {
+					lPlstStatus.setText("Música ou Playlist não encontradas.");
+				}
+				tfPlstCod1.clear();
+				tfPlstAddSong.clear();
+			}
+		}
+	}
+	
+	@FXML
+	private void botaoRemoverMusicaPlst(ActionEvent event) {
+System.out.println("Remover música clicado");
+		
+		String strCodSong = tfPlstRemSong.getText();
+		String strCodPlst = tfPlstCod1.getText();
+		boolean songEncontrado = false , plstEncontrada = false; 
+		
+		if (songs.isEmpty() || playlists.isEmpty()) {
+			lPlstStatus.setText("Não há músicas ou playlists.");
+		} else {
+			if (strCodSong.isEmpty() || strCodPlst.isEmpty()) {
+				lPlstStatus.setText("Preencha todos os campos!");
+			} else {
+				int codSong = Integer.parseInt(strCodSong);
+				int codPlst = Integer.parseInt(strCodPlst);
+				
+				Song songRem = null;
+				Playlist plstRem = null;
+				
+				for (Playlist playlist : playlists) {
+					if (playlist.getCod() == codPlst) {
+						plstRem = playlist;
+						plstEncontrada = true;
+						break;
+					}
+				}
+				
+				for (Song song : songs) {
+					if (song.getCod() == codSong) {
+						songRem = song;
+						songEncontrado = true;
+						break;
+					}
+				}
+				
+				if (plstRem != null && songRem != null) {
+					plstRem.removerMusica(songRem);
+					lPlstStatus.setText("Música removida com sucesso.");
+				}
+				
+				if (!plstEncontrada || !songEncontrado) {
+					lPlstStatus.setText("Música ou Playlist não encontradas.");
+				}
+				tfPlstCod1.clear();
+				tfPlstRemSong.clear();
+			}
+		}
+		
+		
+		
+	}
 	
 }
 
