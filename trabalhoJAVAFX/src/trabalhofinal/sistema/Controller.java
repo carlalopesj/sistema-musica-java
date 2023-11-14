@@ -29,6 +29,10 @@ public class Controller {
 	private Label lUserStatus, lUserInfo;
 	@FXML
 	private ListView<User> lvUsers;
+	@FXML
+	private boolean listViewVisible = false;
+	@FXML
+	private Button teste;
 	
 	ArrayList<User> users = new ArrayList<>();
 	
@@ -57,6 +61,11 @@ public class Controller {
 	private ListView<Playlist> lvPlaylists;
 	
 	ArrayList<Playlist> playlists = new ArrayList<>();
+	
+	public void botaoTeste(ActionEvent event) {
+		listViewVisible = !listViewVisible;
+        lvUsers.setVisible(listViewVisible);
+	}
 	
 	public void initialize() {
 		//Usuários
@@ -646,7 +655,7 @@ public class Controller {
 	
 	@FXML
 	private void botaoRemoverMusicaPlst(ActionEvent event) {
-System.out.println("Remover música clicado");
+		System.out.println("Remover música clicado");
 		
 		String strCodSong = tfPlstRemSong.getText();
 		String strCodPlst = tfPlstCod1.getText();

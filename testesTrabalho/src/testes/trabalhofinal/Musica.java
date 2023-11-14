@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
+
+import javax.swing.JOptionPane;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -632,7 +635,7 @@ public class Musica extends Application{
 		
 		do {
 			System.out.println("===== MENU =====");
-			System.out.println("1- Listar Usuários\n2- Listar Músicas\n3- Listar Playlists\n4- Cadastrar Usuário\n5- Criar Música\n6- Criar Playlist\n7- Sair\n8- Adicionar Música a Playlist\n9 - Mostrar músicas em uma playlist\n10- Buscar Usuário\n11- Buscar Música\n12- Buscar Playlist\n13- Verificar Usuário\n14- Verificar Música\n15- Verificar Playlist\n16- Atualizar Usuário\n17- Atualizar Música\n18- Atualizar Playlist\n19- Remover Usuário\n20- Remover Música\n21- Remover Playlist");
+			JOptionPane.showMessageDialog(null, "1- Listar Usuários\n2- Listar Músicas\n3- Listar Playlists\n4- Cadastrar Usuário\n5- Criar Música\n6- Criar Playlist\n7- Sair\n8- Adicionar Música a Playlist\n9 - Mostrar músicas em uma playlist\n10- Buscar Usuário\n11- Buscar Música\n12- Buscar Playlist\n13- Verificar Usuário\n14- Verificar Música\n15- Verificar Playlist\n16- Atualizar Usuário\n17- Atualizar Música\n18- Atualizar Playlist\n19- Remover Usuário\n20- Remover Música\n21- Remover Playlist");
 			int opcao = scanner.nextInt();
 			switch(opcao) {
 				case 1:

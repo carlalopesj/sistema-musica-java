@@ -14,47 +14,48 @@
         <tabs>
           <Tab text="USUÁRIO">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #778899;">
                      <children>
-                        <Label layoutX="36.0" layoutY="54.0" text="Nome de Usuário:" />
-                        <Label layoutX="42.0" layoutY="116.0" text="Email:" />
-                        <Label layoutX="67.0" layoutY="231.0" text="Insira o nome do usuário:" />
-                        <Label layoutX="102.0" layoutY="459.0" text="Digite o ID:" />
-                        <Label layoutX="50.0" layoutY="541.0" text="Novo nome de Usuário:" />
-                        <Label layoutX="45.0" layoutY="606.0" text="Novo Email:" />
+                        <Label layoutX="45.0" layoutY="55.0" text="Nome de Usuário:" textFill="#eae6e6" />
+                        <Label layoutX="42.0" layoutY="116.0" text="Email:" textFill="#fcf8f8" />
+                        <Label layoutX="67.0" layoutY="231.0" text="Insira o nome do usuário:" textFill="#f7f4f4" />
+                        <Label layoutX="102.0" layoutY="459.0" text="Digite o ID:" textFill="#f2f0f0" />
+                        <Label layoutX="50.0" layoutY="541.0" text="Novo nome de Usuário:" textFill="#faf6f6" />
+                        <Label layoutX="45.0" layoutY="606.0" text="Novo Email:" textFill="#f7f5f5" />
                         <TextField fx:id="tfUserNome" layoutX="62.0" layoutY="76.0" />
                         <TextField fx:id="tfUserEmail" layoutX="63.0" layoutY="138.0" />
                         <TextField fx:id="tfUserNomeBuscar" layoutX="64.0" layoutY="256.0" />
                         <TextField fx:id="tfUserID" layoutX="57.0" layoutY="486.0" />
                         <TextField fx:id="tfUserNovoNome" layoutX="46.0" layoutY="572.0" />
                         <TextField fx:id="tfUserNovoEmail" layoutX="46.0" layoutY="635.0" />
-                        <Button fx:id="btnUserCad" layoutX="109.0" layoutY="186.0" mnemonicParsing="false" onAction="#botaoUserCadastrar" text="Cadastrar" />
-                        <Button fx:id="btnUserBuscar" layoutX="109.0" layoutY="301.0" mnemonicParsing="false" onAction="#botaoUserBuscar" text="Buscar" />
-                        <Button fx:id="btnUserAtua" layoutX="38.0" layoutY="688.0" mnemonicParsing="false" onAction="#botaoUserAtualizar" text="Atualizar" />
-                        <Button fx:id="btnUserDel" layoutX="150.0" layoutY="688.0" mnemonicParsing="false" onAction="#botaoUserDeletar" text="Deletar" />
+                        <Button fx:id="btnUserCad" layoutX="109.0" layoutY="186.0" mnemonicParsing="false" onAction="#botaoUserCadastrar" style="-fx-background-color: #361f91;" text="Cadastrar" textFill="WHITE" />
+                        <Button fx:id="btnUserBuscar" layoutX="109.0" layoutY="301.0" mnemonicParsing="false" onAction="#botaoUserBuscar" style="-fx-background-color: #361f91;" text="Buscar" textFill="#f4f1f1" />
+                        <Button fx:id="btnUserAtua" layoutX="38.0" layoutY="688.0" mnemonicParsing="false" onAction="#botaoUserAtualizar" style="-fx-background-color: #361f91;" text="Atualizar" textFill="#faf4f4" />
+                        <Button fx:id="btnUserDel" layoutX="150.0" layoutY="688.0" mnemonicParsing="false" onAction="#botaoUserDeletar" style="-fx-background-color: #B22222;" text="Deletar" textFill="#fcf5f5" />
                         <ListView fx:id="lvUsers" layoutX="305.0" layoutY="64.0" prefHeight="657.0" prefWidth="338.0" />
-                        <Label fx:id="lUserInfo" layoutX="792.0" layoutY="80.0" text="INFO" />
-                        <Label fx:id="lUserStatus" layoutX="120.0" layoutY="373.0" text="Status" />
+                        <Label fx:id="lUserInfo" layoutX="792.0" layoutY="80.0" textFill="#faf6f6" />
+                        <Label fx:id="lUserStatus" layoutX="120.0" layoutY="373.0" text="Status" textFill="#faf8f8" />
+                        <Button fx:id="teste" layoutX="448.0" layoutY="14.0" mnemonicParsing="false" onAction="#botaoTeste" text="TESTE" />
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
             <Tab text="MÚSICA">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #778899;">
                      <children>
-                        <Label layoutX="40.0" layoutY="56.0" text="Título:" />
-                        <Label layoutX="40.0" layoutY="99.0" text="Artista: " />
-                        <Label layoutX="40.0" layoutY="146.0" text="Ano de Lançamento:" />
-                        <Label layoutX="40.0" layoutY="191.0" text="Gênero:" />
-                        <Label fx:id="lSongStatus" layoutX="138.0" layoutY="267.0" text="Status" />
-                        <Label layoutX="101.0" layoutY="434.0" text="Digite o Código da música:" />
-                        <Label fx:id="lSongInfo" layoutX="853.0" layoutY="56.0" text="Info" />
-                        <Label layoutX="42.0" layoutY="311.0" text="Insira o nome da música:" />
-                        <Label layoutX="45.0" layoutY="518.0" text="Título:" />
-                        <Label layoutX="45.0" layoutY="561.0" text="Artista: " />
-                        <Label layoutX="45.0" layoutY="608.0" text="Ano de Lançamento:" />
-                        <Label layoutX="45.0" layoutY="653.0" text="Gênero:" />
+                        <Label layoutX="40.0" layoutY="56.0" text="Título:" textFill="WHITE" />
+                        <Label layoutX="40.0" layoutY="99.0" text="Artista: " textFill="WHITE" />
+                        <Label layoutX="40.0" layoutY="146.0" text="Ano de Lançamento:" textFill="WHITE" />
+                        <Label layoutX="40.0" layoutY="191.0" text="Gênero:" textFill="WHITE" />
+                        <Label fx:id="lSongStatus" layoutX="138.0" layoutY="267.0" text="Status" textFill="WHITE" />
+                        <Label layoutX="101.0" layoutY="434.0" text="Digite o Código da música:" textFill="WHITE" />
+                        <Label fx:id="lSongInfo" layoutX="853.0" layoutY="56.0" text="Info" textFill="WHITE" />
+                        <Label layoutX="42.0" layoutY="311.0" text="Insira o nome da música:" textFill="WHITE" />
+                        <Label layoutX="45.0" layoutY="518.0" text="Título:" textFill="WHITE" />
+                        <Label layoutX="45.0" layoutY="561.0" text="Artista: " textFill="WHITE" />
+                        <Label layoutX="45.0" layoutY="608.0" text="Ano de Lançamento:" textFill="WHITE" />
+                        <Label layoutX="45.0" layoutY="653.0" text="Gênero:" textFill="WHITE" />
                         <TextField fx:id="tfSongTitulo" layoutX="100.0" layoutY="52.0" prefHeight="26.0" prefWidth="212.0" />
                         <TextField fx:id="tfSongArtista" layoutX="101.0" layoutY="95.0" prefHeight="26.0" prefWidth="209.0" />
                         <TextField fx:id="tfSongAno" layoutX="161.0" layoutY="142.0" />
@@ -65,37 +66,37 @@
                         <TextField fx:id="tfSongNovoA" layoutX="110.0" layoutY="557.0" prefHeight="26.0" prefWidth="218.0" />
                         <TextField fx:id="tfSongNovoAL" layoutX="180.0" layoutY="604.0" />
                         <TextField fx:id="tfSongNovoG" layoutX="114.0" layoutY="649.0" prefHeight="26.0" prefWidth="212.0" />
-                        <Button fx:id="btnSongAdd" layoutX="135.0" layoutY="229.0" mnemonicParsing="false" onAction="#botaoSongAdicionar" text="Adicionar" />
-                        <Button fx:id="btnSongBuscar" layoutX="135.0" layoutY="385.0" mnemonicParsing="false" onAction="#botaoSongBuscar" text="Buscar" />
-                        <Button fx:id="btnSongAtua" layoutX="56.0" layoutY="697.0" mnemonicParsing="false" onAction="#botaoSongAtualizar" text="Atualizar" />
-                        <Button fx:id="btnSongRem" layoutX="223.0" layoutY="697.0" mnemonicParsing="false" onAction="#botaoSongRemover" text="Remover" />
+                        <Button fx:id="btnSongAdd" layoutX="135.0" layoutY="229.0" mnemonicParsing="false" onAction="#botaoSongAdicionar" style="-fx-background-color: #361f91;" text="Adicionar" textFill="#f2eded" />
+                        <Button fx:id="btnSongBuscar" layoutX="135.0" layoutY="385.0" mnemonicParsing="false" onAction="#botaoSongBuscar" style="-fx-background-color: #361f91;" text="Buscar" textFill="#f2eded" />
+                        <Button fx:id="btnSongAtua" layoutX="56.0" layoutY="697.0" mnemonicParsing="false" onAction="#botaoSongAtualizar" style="-fx-background-color: #361f91;" text="Atualizar" textFill="#f2eded" />
+                        <Button fx:id="btnSongRem" layoutX="223.0" layoutY="697.0" mnemonicParsing="false" onAction="#botaoSongRemover" style="-fx-background-color: #361f91;" text="Remover" textFill="#f2eded" />
                         <ListView fx:id="lvSongs" layoutX="371.0" layoutY="46.0" prefHeight="670.0" prefWidth="337.0" />
                      </children></AnchorPane>
               </content>
             </Tab>
             <Tab text="PLAYLIST">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #778899;">
                      <children>
-                        <Label layoutX="50.0" layoutY="49.0" text="Nome da Playlist:" />
-                        <Label layoutX="53.0" layoutY="96.0" text="ID do Proprietário:" />
-                        <Label layoutX="88.0" layoutY="197.0" text="Insira o nome da Playlist:" />
-                        <Label layoutX="88.0" layoutY="354.0" text="Digite o Código da Playlist" />
-                        <Label layoutX="57.0" layoutY="444.0" text="Novo Nome da Playlist:" />
-                        <Label layoutX="57.0" layoutY="491.0" text="Novo ID do Proprietário:" />
-                        <Label fx:id="lPlstStatus" layoutX="142.0" layoutY="322.0" text="Status" />
+                        <Label layoutX="50.0" layoutY="49.0" text="Nome da Playlist:" textFill="#f7f5f5" />
+                        <Label layoutX="53.0" layoutY="96.0" text="ID do Proprietário:" textFill="#f7f5f5" />
+                        <Label layoutX="88.0" layoutY="197.0" text="Insira o nome da Playlist:" textFill="#f7f5f5" />
+                        <Label layoutX="88.0" layoutY="354.0" text="Digite o Código da Playlist" textFill="#f7f5f5" />
+                        <Label layoutX="57.0" layoutY="444.0" text="Novo Nome da Playlist:" textFill="#f7f5f5" />
+                        <Label layoutX="57.0" layoutY="491.0" text="Novo ID do Proprietário:" textFill="#f7f5f5" />
+                        <Label fx:id="lPlstStatus" layoutX="142.0" layoutY="322.0" text="Status" textFill="#f7f5f5" />
                         <TextField fx:id="tfPlstNome" layoutX="158.0" layoutY="45.0" />
                         <TextField fx:id="tfPlstIdProp" layoutX="159.0" layoutY="92.0" />
                         <TextField fx:id="tfPlstNomeBuscar" layoutX="84.0" layoutY="222.0" />
                         <TextField fx:id="tfPlstCod" layoutX="85.0" layoutY="381.0" />
                         <TextField fx:id="tfPlstNovoNome" layoutX="186.0" layoutY="439.0" prefHeight="26.0" prefWidth="162.0" />
                         <TextField fx:id="tfPlstNovoIdProp" layoutX="198.0" layoutY="487.0" />
-                        <Button fx:id="btnPlstAdd" layoutX="134.0" layoutY="139.0" mnemonicParsing="false" onAction="#botaoPlstCriar" text="Criar" />
-                        <Button fx:id="btnPlstBuscar" layoutX="134.0" layoutY="272.0" mnemonicParsing="false" onAction="#botaoPlstBuscar" text="Buscar" />
-                        <Button fx:id="btnPlstAtua" layoutX="62.0" layoutY="553.0" mnemonicParsing="false" onAction="#botaoPlstAtua" text="Atualizar" />
-                        <Button fx:id="btnPlstRem" layoutX="209.0" layoutY="553.0" mnemonicParsing="false" onAction="#botaoPlstRem" text="Remover" />
+                        <Button fx:id="btnPlstAdd" layoutX="134.0" layoutY="139.0" mnemonicParsing="false" onAction="#botaoPlstCriar" style="-fx-background-color: #361f91;" text="Criar" textFill="#fcfbfb" />
+                        <Button fx:id="btnPlstBuscar" layoutX="134.0" layoutY="272.0" mnemonicParsing="false" onAction="#botaoPlstBuscar" style="-fx-background-color: #361f91;" text="Buscar" textFill="#fcfbfb" />
+                        <Button fx:id="btnPlstAtua" layoutX="62.0" layoutY="553.0" mnemonicParsing="false" onAction="#botaoPlstAtua" style="-fx-background-color: #361f91;" text="Atualizar" textFill="#fcfbfb" />
+                        <Button fx:id="btnPlstRem" layoutX="209.0" layoutY="553.0" mnemonicParsing="false" onAction="#botaoPlstRem" style="-fx-background-color: #361f91;" text="Remover" textFill="#fcfbfb" />
                         <ListView fx:id="lvPlaylists" layoutX="381.0" layoutY="39.0" prefHeight="544.0" prefWidth="263.0" />
-                        <Label fx:id="lPlstInfo" layoutX="709.0" layoutY="41.0" text="INFO" />
+                        <Label fx:id="lPlstInfo" layoutX="709.0" layoutY="41.0" text="INFO" textFill="WHITE" />
                         <Label layoutX="1155.0" layoutY="115.0" text="Adicionar Musica" />
                         <Label layoutX="1171.0" layoutY="239.0" text="Remover Música" />
                         <TextField fx:id="tfPlstAddSong" layoutX="1155.0" layoutY="137.0" />
