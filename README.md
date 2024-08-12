@@ -7,4 +7,6 @@ O projeto foi feito pensando no treinamento de Programação Orientada a Objeto 
 OBS:
 - Não foi utlizado padrão MVC, nem banco de dados, o foco era a criação de classes e objetos, bem como seus atributos e métodos.
 - Tiveram muitas linhas de códigos, dado que ainda estávamos em aprendizado
-- O trabalho possui três opções: comandos via CLI, JOptionPane e o uso do FXML
+- O trabalho possui duas opções: JOptionPane e o interface com FXML.
+  - A pasta 'Trabalho Programacao' contém os códigos com JOptionPane;
+  - A pasta 'trabalhoJAVAFX' possui códigos referentes ao FXML.
