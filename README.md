@@ -24,5 +24,6 @@ OBS:
 - Tiveram muitas linhas de códigos, dado que ainda estávamos em aprendizado
 - O trabalho possui duas opções: JOptionPane e o interface com FXML.
   - A pasta 'Trabalho Programacao' contém os códigos com JOptionPane;
-  - A pasta 'trabalhoJAVAFX' possui códigos referentes ao FXML.
+  - A pasta 'trabalhoJAVAFX' possui códigos referentes ao FXML;
+  - Já a pasta testesTrabalho, como o próprio nome diz, foi para fazer alguns testes quanto ao funcionamento do fxml.
  - Caso peça senha para acesso é: ads2023, você pode modificar nas linhas de códigos...
